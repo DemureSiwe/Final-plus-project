@@ -7,6 +7,8 @@ function refreshWeather(response) {
   let windspeedElement = document.querySelector("#wind-speed");
   let timeElement = document.querySelector("#time");
   let date = new Date(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
+  icon.innerHTML = `<img src="${response.data.condition.icon_url}"class="Weather-app-icon" />`;
 
   cityElement.innerHTML = response.data.city;
   timeElement.innerHTML = formatDate(date);
@@ -36,6 +38,7 @@ function formatDate(date) {
 
   return `${day} ${hours}:${minutes}`;
 }
+// date and time doesn't appear on my app
 
 function searchCity(city) {
   let apiKey = "24ao33ccbd25f045000ce8tbae8037df";
